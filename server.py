@@ -440,7 +440,6 @@ def logout():
     session.clear()
     return jsonify({'success': True})
 
-# 不需要 if __name__ 块，直接保留 app 对象即可
-# 本地开发时可以保留，但部署到 Vercel 时不会执行
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
